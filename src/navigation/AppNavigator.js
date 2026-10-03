@@ -31,24 +31,31 @@ function Tabs() {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: true,
+        tabBarLabelPosition: 'below-icon',
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.muted,
         tabBarStyle: {
           backgroundColor: colors.card,
           borderTopColor: colors.border,
           borderTopWidth: 1,
-          height: 62,
+          height: 64,
           paddingTop: 6,
-          paddingBottom: 6,
+          paddingBottom: 8,
+        },
+        tabBarItemStyle: {
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
         },
         tabBarLabelStyle: {
           fontSize: 11,
           fontWeight: '600',
+          marginTop: 2,
         },
         tabBarIcon: ({ focused, color }) => {
           const iconBase = tabIcons[route.name];
           const iconName = focused ? iconBase : `${iconBase}-outline`;
-          return <Ionicons name={iconName} size={24} color={color} />;
+          return <Ionicons name={iconName} size={22} color={color} />;
         },
       })}>
       <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarLabel: 'Home' }} />
